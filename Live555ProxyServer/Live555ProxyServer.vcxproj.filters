@@ -38,9 +38,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Live555ProxyServer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MyServerMediaSubsession.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -48,6 +45,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MyServerMediaSession.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProxyServerMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

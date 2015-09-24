@@ -4,7 +4,7 @@
 //
 
 #pragma once
-
+#define FD_SETSIZE 1024
 #include "targetver.h"
 
 #include <stdio.h>

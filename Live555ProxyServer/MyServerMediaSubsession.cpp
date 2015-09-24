@@ -142,7 +142,8 @@ void CMyServerMediaSubsession::closeStreamSource(FramedSource* inputSource) {
 	// we don't close the input source here.  (Instead, we wait until *this* object gets deleted.)
 	// However, because (as evidenced by this function having been called) we no longer have any clients accessing the stream,
 	// then we "PAUSE" the downstream proxied stream, until a new client arrives:
-	if (fHaveSetupStream) {
+	if (fHaveSetupStream) 
+    {
 		CMyServerMediaSession* const sms = (CMyServerMediaSession*)fParentSession;
 		CMyRTSPClent* const proxyRTSPClient = sms->fProxyRTSPClient;
 		if (proxyRTSPClient->fLastCommandWasPLAY) { // so that we send only one "PAUSE"; not one for each subsession
@@ -152,8 +153,7 @@ void CMyServerMediaSubsession::closeStreamSource(FramedSource* inputSource) {
 	}
 }
 
-RTPSink* CMyServerMediaSubsession
-	::createNewRTPSink(Groupsock* rtpGroupsock, unsigned char rtpPayloadTypeIfDynamic, FramedSource* inputSource) {
+RTPSink* CMyServerMediaSubsession::createNewRTPSink(Groupsock* rtpGroupsock, unsigned char rtpPayloadTypeIfDynamic, FramedSource* inputSource) {
 		if (verbosityLevel() > 0) {
 			envir() << *this << "::createNewRTPSink()\n";
 		}
@@ -179,8 +179,8 @@ RTPSink* CMyServerMediaSubsession
 			newSink = H263plusVideoRTPSink::createNew(envir(), rtpGroupsock, rtpPayloadTypeIfDynamic,
 				fClientMediaSubsession.rtpTimestampFrequency()); 
 		} else if (strcmp(codecName, "H264") == 0) {
-			newSink = H264VideoRTPSink::createNew(envir(), rtpGroupsock, rtpPayloadTypeIfDynamic,
-				fClientMediaSubsession.fmtp_spropparametersets());
+            newSink = H264VideoRTPSink::createNew(envir(), rtpGroupsock, rtpPayloadTypeIfDynamic,
+                fClientMediaSubsession.fmtp_spropparametersets());
 		} else if (strcmp(codecName, "H265") == 0) {
 			newSink = H265VideoRTPSink::createNew(envir(), rtpGroupsock, rtpPayloadTypeIfDynamic,
 				fClientMediaSubsession.fmtp_spropvps(),

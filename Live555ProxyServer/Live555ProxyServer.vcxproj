@@ -94,7 +94,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Live555ProxyServer.cpp" />
+    <ClCompile Include="ProxyServerMain.cpp" />
     <ClCompile Include="MyRTSPClent.cpp" />
     <ClCompile Include="MyServerMediaSession.cpp" />
     <ClCompile Include="MyServerMediaSubsession.cpp" />
